@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Propietarios{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Propietarios</h1>
+
+    <a href="{{ path('propietario_agregar')}}" class="btn btn-success">Agregar Propietario</a>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for propietario in propietarios %}
+        <tr>
+            <td>{{ propietario.nombre }}</td>
+            <td>{{ propietario.apellido }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

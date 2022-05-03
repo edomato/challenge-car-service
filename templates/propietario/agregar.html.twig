@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h1>Agregar Propietario</h1>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn-primary btn">Guardar</button>
+        <a href="{{ path('propietario_index') }}" class="btn btn-danger">Cancelar</a>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Autos{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Autos</h1>
+    {% for flash in app.flashes('error') %}
+        <div class="alert alert-danger">{{ flash }}</div>
+    {% endfor %}
+
+    <a href="{{ path('auto_agregar')}}" class="btn btn-success">Agregar Auto</a>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Año</th>
+            <th scope="col">Patente</th>
+            <th scope="col">Color</th>
+            <th scope="col">Propietario</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for auto in autos %}
+        <tr>
+            <td>{{ auto.id }}</td>
+            <td>{{ auto.marca }}</td>
+            <td>{{ auto.modelo }}</td>
+            <td>{{ auto.anio }}</td>
+            <td>{{ auto.patente }}</td>
+            <td>{{ auto.color }}</td>
+            <td>{{ auto.propietario }}</td>
+            <td>
+                <a href="{{ path('auto_editar', {id: auto.id}) }}">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <a href="{{ path('auto_borrar', {id: auto.id}) }}">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
